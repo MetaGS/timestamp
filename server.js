@@ -20,16 +20,10 @@ app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
 
-app.get("/dreams", function (request, response) {
-  dreams.push(request.path);
-  response.send(dreams);
-});
+
 
 // could also use the POST body instead of query string: http://expressjs.com/en/api.html#req.body
-app.post("/dreams", function (request, response) {
-  dreams.push(request.query.dream);
-  response.sendStatus(200);
-});
+
 
 app.use('/:date',function(req,res,next){
   console.log(req.path);
